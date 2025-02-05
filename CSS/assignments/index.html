@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    .h {
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 50px;
+
+    }
+
+    header {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      padding-left: 20px;
+    }
+
+    p {
+      padding-top: 20px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: orange;
+      color: white;
+      border: none;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+    .Menu {
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .Card {
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .Cards {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid white;
+      border-radius: 15px;
+      box-shadow: 0 3px 5px 0;
+
+      & img {
+        height: 100px;
+        width: 100px;
+        border-radius: 10px;
+      }
+    }
+
+    .About {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      & h1 {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+    }
+    .Contact{
+      text-align: center;
+      & h1{
+        padding: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header style="background-image: url(coffeehead.png);">
+    <div class="head">
+      Brewed Awakening
+      <nav>
+        <a href="#Menu">Menu</a>
+        <a href="#About_Us">About Us</a>
+        <a href="#Contact">Contact</a>
+        <input type="search" placeholder="search">
+        <i class="fas fa-search"></i>
+      </nav>
+    </div>
+    <section class="h">
+      <h1>Welcome to Brewed Awakening</h1>
+      <p>Your daily dose of caffenier</p>
+      <button>View Menu</button>
+    </section>
+  </header>
+  <div class="Menu">
+    <h1>Our Menu</h1>
+    <div class="Card" id="Menu">
+      <div class="Cards">
+        <img src="menu1.png" alt="cappuccino">
+        <div>Cappuccino</div>
+      </div>
+      <div class="Cards">
+        <img src="menu2.png" alt="Macchito">
+        <div>Macchiato </div>
+      </div>
+      <div class="Cards">
+        <img src="menu3.png" alt="chocolate coffee">
+        <div>Chocolate coffee</div>
+      </div>
+      <div class="Cards">
+        <img src="menu4.png" alt="Moha coffee">
+        <div>Moha coffee</div>
+      </div>
+      <div class="Cards">
+        <img src="menu5.png" alt="chocolate coffee">
+        <div>Cold Coffee</div>
+      </div>
+    </div>
+  </div>
+  <div class="About" id="About_Us">
+    <h1>About Us</h1>
+    <div>
+      <p>Coffee preparation is the making of liquid coffee using coffee beans. While the particular steps vary with the
+        type of coffee and with the raw materials, the process includes four basic steps: raw coffee beans must be
+        roasted, the roasted coffee beans must then be ground, and the ground coffee must then be mixed with hot or cold
+        water (depending on the method of brewing) for a specific time (brewed), the liquid coffee extraction must be
+        separated from the usedhe used grounds, and finally, if desired, the extracted coffee is combined with other
+        elements of the desired beverage, such as sweeteners, dairy products, dairy alternatives, or toppings (such as
+        shaved chocolate).
+      <p>Coffee is usually brewed hot, at close to the boiling point of water, immediately before drinking, yielding a
+        hot beverage capable of scalding if splashed or spilled; if not consumed promptly, coffee is often sealed into a
+        vacuum flask or insulated bottle to maintain its temperature. In most areas, coffee may be purchased
+        unprocessed, or already roasted, or already roasted and ground. Whole roast coffee or ground coffee is often
+        vacuum-packed to prevent oxidation and lengthen its shelf life. Especially in hot climates, some find cold or
+        iced coffee more refreshing. This can be prepared well in advance as it maintains its character when stored cold
+        better than as a hot beverage.
+      </p>
+      <p>Even with the same roast, the character of the extraction is highly dependent on distribution of particle sizes
+        produced by the grinding process, temperature of the grounds after grinding, freshness of the roast and grind,
+        brewing process and equipment, temperature of the water, character of the water itself, contact time with hot
+        water (less sensitive with cold water), and the brew ratio employed. Preferred brew ratios of water to coffee
+        often fall into the range of 15–18:1 by mass; even within this fairly small range, differences are easily
+        perceived by an experienced coffee drinker. Processes can range from extremely manual (e.g. hand grinding with
+        manual pour-over in steady increments) to totally automated by a single appliance with a reservoir of roast
+        beans which it automatically measures and grinds, and water, which it automatically heats and doses. Another
+        common style of automated coffee maker is fed a single-serving "pod" of pre-measured coffee grounds for each
+        beverage.</p>
+      </p>
+    </div>
+  </div>
+  <div class="Contact" id="Contact">
+    <h1>Contact</h1>
+    <i class="fas fa-phone">+91-**********</i><br><br>
+    <i class="fas fa-envelope">brewawaking@gmail.com</i>
+    
+  </div>
+
+
+
+</body>
+
+</html>
