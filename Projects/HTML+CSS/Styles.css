@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.enquire {
+    color: white;
+    display: flex;
+    background-color: red;
+    align-items: center;
+    gap: 5rem;
+    align-items: center;
+
+    & h4 {
+        padding-left: 20px;
+    }
+
+    & a {
+        color: white;
+        background-color: black;
+        border-radius: 5px;
+        text-decoration: none;
+        padding: 5px;
+        border: 2px solid white;
+    }
+
+    & a:hover {
+        border: 2px solid black;
+    }
+}
+
+.heading {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+
+    & img {
+        height: 80px;
+    }
+
+    & nav ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+    & nav ul li ul {
+        display: none;
+    }
+
+    & nav ul li a {
+        text-decoration: none;
+        padding: 2px;
+        padding: 10px;
+    }
+
+    & nav ul li a:hover {
+        background-color: red;
+        border-radius: 5px;
+    }
+
+    & button {
+        color: white;
+        background-color: black;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+
+}
+
+.dropbtn {
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    border-radius: 4px;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid grey;
+}
+
+.dropdown-content a:hover {
+    background-color: red;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: black;
+    min-width: 220px;
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
+.slidshow {
+    margin-top: 120px;
+    box-sizing: border-box;
+    & img {
+        width: 100%;
+    }
+}
+.matter {
+    display: flex;
+}
+
+.content {
+    width: 50%;
+    padding: 50px;
+    margin-left: 80px;
+
+    & h1 {
+        margin-bottom: 20px;
+    }
+
+    & p {
+        margin-bottom: 20px;
+    }
+
+    & h3 {
+        color: red;
+        margin-bottom: 20px;
+    }
+
+    & .b {
+        font-weight: bold;
+    }
+
+    & .r {
+        font-weight: bold;
+        color: red;
+    }
+}
+
+.profile {
+    width: 50%;
+    padding: 50px;
+    margin-left: 80px;
+
+    & h1 {
+        text-align: center;
+    }
+}
+
+.cs {
+    padding-top: 30px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.c {
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0px 1px 1px;
+    display: inline-block;
+    text-align: center;
+    width: 320px;
+    height: 200px;
+    border-radius: 5px;
+
+    & i {
+        color: red;
+        font-size: 50px;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    & p {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        padding-top: 30px;
+    }
+}
+
+.c:hover {
+    border-bottom: 3px solid red;
+}
+.courses{
+    background-color: black;
+    & h1{
+        padding-top: 20px;
+        text-align: center;
+        color: white;
+    }
+}
+.cards{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    border-radius: 15px;
+
+}
+.card{
+    margin: 20px;
+    padding: 10px;
+    width: 350px;
+    border: 1px solid grey;
+    box-shadow: 0px 3px 5px;
+    text-align: center;
+    & img{
+        width: 320px;
+        height: 200px;
+    }
+    & p span{
+        color: white;
+        font-weight: bold;
+    }
+    & p{
+        top: 10px;
+        padding: 10px;
+        color: white ;
+    }
+    & button {
+        padding: 10px;
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+        margin-bottom: 40px;
+    }
+    & button:hover {
+        border: none;
+    }
+
+}
+
+.sucess {
+    margin: 30px;
+    text-align: center;
+    & p{
+        padding: 40px;
+        font-size: 30px;
+    }
+    & .images img{
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid black;
+        margin: 30px;
+    }
+}
+.meet{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    & button {
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        background-color: red;
+        font-size: 20px;
+        border: 2px solid white;
+    }
+}
+.bussiness {
+    margin: 30px;
+    text-align: center;
+    & p span{
+        font-weight: bold;
+    }
+    & p {
+        padding: 20px;
+    }
+}
+
+.foot {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    color: white;
+    
+    & .info{
+        margin-left: 60px;
+        padding: 20px;
+        width: 35%;
+        & img {
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+        & p .g{
+            color: darkgray;
+        }
+        & p .l{
+            color: lightpink;
+        }
+        & i{
+            padding-top: 20px;
+            font-size: 20px;
+        }
+    }
+    & .courses{
+        width: 15%;
+        display: inline;
+        & h1{
+            color: red;
+            font-size: 20px;
+            text-align: left;
+            font-weight: 100;
+            margin-bottom: 30px;
+        }
+        & p{
+            padding: 5px;
+        }
+
+    }
+    & .location{
+        width: 30%;
+        & span{
+            color: red;
+            font-weight: 100;
+        }
+        & .place{
+            display: flex;
+            padding: 10px;
+            & i{
+                color: red;
+            }
+            & p span{
+                color: white;
+            }
+            & p{
+                color: grey;
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    padding: 10px;
+    background-color: grey;
+}
