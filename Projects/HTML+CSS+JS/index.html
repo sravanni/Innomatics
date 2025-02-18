@@ -14,10 +14,13 @@
         <div class="category-buttons">
             <button data-category="fruits">Fruits</button>
             <button data-category="emojis">Emojis</button>
+            <button data-category="animals">Animals</button>
+            <button data-category="planets">Planets</button>
+            <button data-category="flags">Flags</button>
         </div>
     </div>
 
-    <div class="game-conatainer hidden">
+    <div class="game-container hidden">
         <div class="game-header">
             <p>Time Left: <span id="timer">30</span>s</p>
             <p>Score: <span id="score">0</span></p>
@@ -30,6 +33,11 @@
             <button id="restart">Play Again</button>
         </div>
     </div>
+   
+
+    <audio id="flip-sound" src="sounds/flip.mp3"></audio>
+    <audio id="match-sound" src="sounds/match.mp3"></audio>
+    <audio id="game-over-sound" src="sounds/game-over.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
