@@ -1,0 +1,118 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa; /* Light cyan background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333; /* Dark text color for better readability */
+}
+
+.container {
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    background-color: #ffffff; /* White background for the container */
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em; /* Larger font size for the title */
+    color: #00796b; /* Teal color for the title */
+}
+
+h2 {
+    font-size: 1.5em; /* Slightly smaller font size for subtitles */
+    color: #004d40; /* Darker teal for subtitles */
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #00796b; /* Teal button background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#score, #timer {
+    font-size: 1.2em; /* Larger font size for score and timer */
+    margin: 10px;
+    color: #00796b; /* Teal color for score and timer */
+}
+
+#cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff; /* White card background */
+    border: 2px solid #4caf50; /* Green border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners for cards */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+}
+
+.card.flipped {
+    background-color: #ffeb3b; /* Yellow background when flipped */
+    color: #000000; /* Black text */
+    transform: scale(1.1); /* Slightly enlarge the card */
+}
+
+.hidden {
+    display: none;
+}
+
+#game-over {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #d32f2f; /* Red color for game over message */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #cards-container {
+        grid-template-columns: repeat(3, 80px); /* Adjust grid for smaller screens */
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+        font-size: 20px; /* Smaller font size for cards */
+    }
+
+    button {
+        padding: 8px 16px; /* Adjust button size for smaller screens */
+        font-size: 14px; /* Smaller font size for buttons */
+    }
+}
