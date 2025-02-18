@@ -1,118 +1,121 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa; /* Light cyan background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #333; /* Dark text color for better readability */
+const categories = {
+    fruits: ["🍎", "🍌", "🍇", "🍊", "🍓", "🍍", "🥭", "🍒"],
+    emojis: ["😀", "😎", "🤩", "😍", "🥳", "😜", "🤔", "😇"],
+};
+
+let selectedCategory = [];
+let flippedCards = [];
+let matchedCards = [];
+let score = 0;
+let timer;
+let timeLeft = 30;
+
+const landingPage = document.querySelector(".landing-page");
+const gameContainer = document.querySelector(".game-container");
+const cardsGrid = document.querySelector(".cards-grid");
+const timerDisplay = document.getElementById("timer");
+const scoreDisplay = document.getElementById("score");
+const gameOverScreen = document.querySelector(".game-over");
+const finalScoreDisplay = document.getElementById("final-score");
+const restartButton = document.getElementById("restart");
+const gameOverMessage = document.getElementById("game-over-message");
+
+// Event listeners for category selection
+document.querySelectorAll(".category-buttons button").forEach(button => {
+    button.addEventListener("click", () => {
+        selectedCategory = categories[button.dataset.category];
+        startGame();
+    });
+});
+
+// Start the game
+function startGame() {
+    landingPage.classList.add("hidden");
+    gameContainer.classList.remove("hidden");
+    initializeCards();
+    startTimer();
 }
 
-.container {
-    text-align: center;
-    border-radius: 10px; /* Rounded corners for the container */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 20px;
-    background-color: #ffffff; /* White background for the container */
+// Initialize and shuffle cards
+function initializeCards() {
+    const cards = [...selectedCategory, ...selectedCategory];
+    cards.sort(() => Math.random() - 0.5);
+    cardsGrid.innerHTML = "";
+    cards.forEach(item => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.dataset.value = item;
+        card.addEventListener("click", handleCardClick);
+        cardsGrid.appendChild(card);
+    });
 }
 
-header {
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 2.5em; /* Larger font size for the title */
-    color: #00796b; /* Teal color for the title */
-}
-
-h2 {
-    font-size: 1.5em; /* Slightly smaller font size for subtitles */
-    color: #004d40; /* Darker teal for subtitles */
-}
-
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #00796b; /* Teal button background */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-}
-
-button:hover {
-    background-color: #004d40; /* Darker teal on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
-}
-
-#game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#score, #timer {
-    font-size: 1.2em; /* Larger font size for score and timer */
-    margin: 10px;
-    color: #00796b; /* Teal color for score and timer */
-}
-
-#cards-container {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.card {
-    width: 100px;
-    height: 100px;
-    background-color: #ffffff; /* White card background */
-    border: 2px solid #4caf50; /* Green border */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 10px; /* Rounded corners for cards */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
-}
-
-.card.flipped {
-    background-color: #ffeb3b; /* Yellow background when flipped */
-    color: #000000; /* Black text */
-    transform: scale(1.1); /* Slightly enlarge the card */
-}
-
-.hidden {
-    display: none;
-}
-
-#game-over {
-    margin-top: 20px;
-    font-size: 24px;
-    color: #d32f2f; /* Red color for game over message */
-    font-weight: bold; /* Bold text for emphasis */
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    #cards-container {
-        grid-template-columns: repeat(3, 80px); /* Adjust grid for smaller screens */
-    }
-
-    .card {
-        width: 80px;
-        height: 80px;
-        font-size: 20px; /* Smaller font size for cards */
-    }
-
-    button {
-        padding: 8px 16px; /* Adjust button size for smaller screens */
-        font-size: 14px; /* Smaller font size for buttons */
+// Handle card clicks
+function handleCardClick(event) {
+    const card = event.target;
+    if (flippedCards.length < 2 && !flippedCards.includes(card) && !card.classList.contains("matched")) {
+        flipCard(card);
+        flippedCards.push(card);
+        if (flippedCards.length === 2) {
+            checkForMatch();
+        }
     }
 }
+
+// Flip a card
+function flipCard(card) {
+    card.classList.add("flipped");
+    card.textContent = card.dataset.value;
+}
+
+// Check for a match
+function checkForMatch() {
+    const [card1, card2] = flippedCards;
+    if (card1.dataset.value === card2.dataset.value) {
+        card1.classList.add("matched");
+        card2.classList.add("matched");
+        matchedCards.push(card1, card2);
+        score += 10;
+        scoreDisplay.textContent = score;
+        if (matchedCards.length === selectedCategory.length * 2) {
+            endGame(true);
+        }
+    } else {
+        setTimeout(() => {
+            card1.classList.remove("flipped");
+            card2.classList.remove("flipped");
+            card1.textContent = "";
+            card2.textContent = "";
+        }, 1000);
+    }
+    flippedCards = [];
+}
+
+// Timer functionality
+function startTimer() {
+    timer = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+        if (timeLeft === 0) {
+            endGame(false);
+        }
+    }, 1000);
+}
+
+// End the game
+function endGame(isWin) {
+    clearInterval(timer); // Stop the timer
+    gameOverScreen.classList.remove("hidden"); // Show the game over screen
+    finalScoreDisplay.textContent = score; // Display the final score
+
+    // Disable further card clicks
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        card.removeEventListener("click", handleCardClick);
+    });
+}
+
+// Restart the game
+restartButton.addEventListener("click", () => {
+    location.reload();
+});
